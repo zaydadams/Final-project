@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
+
+section{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: grid;
+    background: url(/images/lambo.jpg);
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    box-sizing: border-box;
+    
+}
+
+.container .head h1{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    place-items: center;
+    font-size: 100px;
+    color: #0af702;
+    margin-bottom: 100px;
+}
+
+
+
+
+

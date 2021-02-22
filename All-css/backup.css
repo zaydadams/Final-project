@@ -1,0 +1,6 @@
+.top-nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "top-home top-reviews top-videos top-about top-contact";
+}
