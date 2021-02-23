@@ -1,31 +1,26 @@
 body{
     margin: 0;
     padding: 0;
-    background: #000000;
+    background: rgb(90, 90, 90);
 }
 
-section{
-    margin: 0;
-    padding: 0;
+#firstsection{
+    height: 2vh;
 }
-
 .container{
-    display: grid;
-    background: url(/images/lambo.jpg);
-    background-repeat: no-repeat;
-    height: 100vh;
-    background-size: cover;
-    box-sizing: border-box;
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+
 }
 
-.container .head h1{
-    display: grid;
-    grid-template-columns: 1fr auto;
-    place-items: center;
-    font-size: 100px;
-    color: #0af702;
-    margin-bottom: 100px;
+#secondsection{
+    margin: 0;
+    height: 50vh;
+}
+.firstimg img{
+    left: 0;
+    width: 900px;
 }
 
 

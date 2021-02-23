@@ -2,9 +2,9 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: #0af702;
+    background: #029df7;
     position: fixed;
-    width: 50vw;
+    width: 54vw;
     z-index: 100;
     left: 23%;
     margin-top: 20px;

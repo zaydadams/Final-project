@@ -1,6 +1,29 @@
-form{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr auto;
+body{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    margin-top: 175px;
     
+
+}
+.content{
+    color: rgb(231, 3, 3);
+    box-sizing: border-box;
+    border: solid 4px rgb(231, 3, 3);
+    width: 24%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background: rgb(0, 0, 0) ;
+}
+
+.content h3{
+    font-size: 30px;
+}
+
+.content h2{
+    font-size: 20px;
 }
