@@ -1,5 +1,6 @@
 import sqlite3
-from flask import Flask, render_template, request
+from flask import Flask, request
+from flask import jsonify
 
 
 def init_sqlite_db():
@@ -20,7 +21,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/registration-form/')
 def enter_new_client():
-    return render_template('registration-form.html')
+    return jsonify('registration-form.html')
 
 
 @app.route('/add-new-record/', methods=['POST'])
@@ -44,7 +45,7 @@ def add_new_record():
 
         finally:
             con.close()
-            return render_template('results.html', msg=msg)
+            return jsonify('results.html', msg=msg)
 
 
 @app.route('/show-records/', methods=["GET"])
@@ -60,7 +61,7 @@ def show_records():
         print("There was an error fetching results from the database: " + str(e))
     finally:
         con.close()
-        return render_template('records.html', records=records)
+        return jsonify('records.html', records=records)
 
 
 @app.route('/delete-clients/<int:clients_id>/', methods=["GET"])
@@ -78,6 +79,6 @@ def delete_clients(client_id):
         msg = "Error occurred when deleting a client in the database: " + str(e)
     finally:
         con.close()
-        return render_template('delete-success.html', msg=msg)
+        return jsonify('delete-success.html', msg=msg)
 
 
