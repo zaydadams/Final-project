@@ -1,21 +1,32 @@
 body{
     margin: 0;
     padding: 0;
+    background: #fff;
 }
 
 header{
+    margin: 0;
+    padding: 0;
     background-color: #000000;
     color: #fff;
     padding-top: 10px;
     min-height: 70px;
-    border-bottom:#a8fd20 10px solid;
+    border-bottom:rgb(114, 231, 4)  3px solid;
+    border-top: rgb(114, 231, 4) 3px solid;
+    border-left: rgb(114, 231, 4) 3px solid;
+    border-right: rgb(114, 231, 4)  3px solid;
 }
 
 header .head h1{
+    display: flex;
     font-size: 50px;
-    color: #a8fd20;
+    color: #fff ;
     justify-content: center;
-    align-items: center;
+    
+}
+nav{
+    position: relative;
+    width: 100%;
 }
 
 .navi nav ul{
@@ -29,5 +40,26 @@ nav ul li{
 }
 nav ul li a{
     text-decoration: none;
-    color: #a8fd20;
+    color: rgb(114, 231, 4) ;
+    font-size: 20px
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    
+}
+.container .content h1{
+    font-weight: 200;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.container .content img{
+    grid-column: 1/2;
+    width: 700px;
+}
+.container.para p{
+    grid-column: 2/2;
 }
