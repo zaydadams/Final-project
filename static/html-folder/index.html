@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css-folder/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>My Blog</title>
 </head>
 <body>
     <section id="firstsection">
-    <header>
-        <div class="head">
-            
-        </div>
-        <div class="navi">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Car Reviews</a></li>
-                    <li><a href="#">Videos</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="landing.html">Login/Signup</a></li>,
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <div class="topnav" id="myTopnav">
+            <a class="active" href="#home"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <div class="dropdown">
+              <button class="dropbtn">Content
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Latest cars</a>
+                <a href="#">Old school</a>
+                <a href="#">Street racing</a>
+              </div>
+            </div>
+            <a href="#about">About</a>
+            <div class="search-container">
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+              </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+          </div>
     </section><br>
     <section id="secondsection">
         <div class="container">
