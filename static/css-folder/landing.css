@@ -1,68 +1,135 @@
 *{
     box-sizing: border-box;
+    
 
 }
 body{
-    text-align: center;
+    background: url(/images/mustang-2338351_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
     display: flex;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    left: 20%;
+    
+}
+
+
+nav{
+    display: flex;
     width: 100%;
+    box-sizing: border-box;
+    box-shadow: rgba(204, 18, 18, 0.5);
+}
+
+.navi nav ul{
+    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0 20px;
+    justify-content: space-around;
+} 
+nav ul li{
+    list-style: none;
+    display: flex;
 }
-
-.nav{
-    display: inline-flex;
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    background-color: white;
-    padding: 0 20px;
-    border-radius: 40px;
-    box-shadow: 0 10px 40px rgba(150,172,177,0.8);
-    margin-top: -41%;
-}
-
-.nav-item{
-    color: #83818c;
-    padding: 20px;
+nav ul li a{
+    display: flex;
+    justify-content: center;
     text-decoration: none;
-    transition: 0.3s;
-    margin: 0 7px;
-    z-index: 1;
-    font-weight: 500;
-    font-family: tahoma;
-    position: relative; 
+    color: #000000 ;
+    font-size: 20px
 }
-.nav-item:before{
-    content: "";
+nav ul li button{
+    font-size: 20px;
+    color: white;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+#login-form{
+   
+}
+
+.form-box{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 10% auto;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    overflow: hidden;
+}
+.button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+}
+
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn{
+    
+}
+.input-group-login{
+    top: 150px;
+}
+.input-group-register{
+    top: 120px;
     position: absolute;
-    bottom: -7px;
-    left: 0;
+    width: 280px;
+    transition: .5s;
+}
+.input-field{
     width: 100%;
-    height: 5px;
-    background-color: #dfe2ea;
-    border-radius: 8px 8px 0 0;
-    opacity: 0;
-    transition: 0.3s;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
 }
-
-.nav-item:not(.is-active):hover:before{
-    opacity: 1;
-    bottom: 0;
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: #d82912;
+    border: 0;
+    outline: none;
+    border-radius: 30px; 
 }
-.nav-item:not(.is-active):hover{
-    color: #333;
+.check-box{
+    margin: 30px 10px 34px 0;
 }
-
-.nav-indicator{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    transition: 0.4s;
-    height: 5px;
-    z-index: 1;
-    border-radius: 8px 8px 0 0;
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 229px;
+    left: 9%;
+}
+#login{
+    left: 50px;
+}
+#login input{
+    color: white;
+    font-size: 15;
+}
+#register{
+    left: 450px;
+}
+#register input{
+    color: white;
+    font-size: 15;
 }

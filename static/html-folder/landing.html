@@ -7,16 +7,52 @@
     <title>Blog landing Page</title>
 </head>
 <body>
-    <nav class="nav">
-        <a href="#" class="nav-item is-active" active-color="orange">Home</a>
-        <a href="#" class="nav-item" active-color="green">Car Reviews</a>
-        <a href="#" class="nav-item" active-color="blue">Videos</a>
-        <a href="#" class="nav-item" active-color="red">About</a>
-        <a href="#" class="nav-item" active-color="black">Contact</a>
-        <span class="nav-indicator"></span>
-
-
-    </nav>
-    
+    <section>
+        <header>
+            <div class="head">
+                <h1>Rev-up</h1>
+            </div>
+            <div class="navi">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Car Reviews</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="landing.html">Login/Signup</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </section>
+    <section>
+        <div id="login-form" class="login-page">
+            <div class="form-box">
+                <div class="button-box">
+                <div id="btn"></div>
+                    <button type="button" onclick="login()" class="toggle-btn">Log in</button>
+                    <button type="button" onclick="register()" class="toggle-btn">Register</button>
+                </div>
+                <form id="login" class="input-group-login">
+                    <input type="text" class="input-field" placeholder="Email Id" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box"><span>Remeber Password</span>
+                    <button type="submit" class="submit-btn">Log in</button>
+                </form>
+                <form id="register" class="input-group-register">
+                    <input type="text" class="input-field" placeholder="First Name" required>
+                    <input type="text" class="input-field" placeholder="Last Name" required>
+                    <input type="email" class="input-field" placeholder="Email Id" required> 
+                    <input type="password" class="input-field" placeholder="Enter Password" required> 
+                    <input type="password" class="input-field" placeholder="Confirm Password" required> 
+                    <input type="checkbox" class="check-box"><span class="check">I agree to the terms and conditions</span>
+                    <button type="submit" class="submit-btn">Register</button>
+                </form>
+            
+            </div>
+        </div>
+    </section>
+    <script src="/static/js-folder/main.js"></script>
 </body>
 </html>
