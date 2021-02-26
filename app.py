@@ -21,7 +21,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/registration-form/')
 def enter_new_client():
-    return jsonify('registration-form.html')
+    return jsonify('landing.html')
 
 
 @app.route('/add-new-record/', methods=['POST'])
@@ -29,10 +29,11 @@ def add_new_record():
     if request.method == "POST":
         msg = None
         try:
-            name = request.form['name']
-            email = request.form['email']
-            country = request.form['country']
-            password = request.form['password']
+            post_data = request.get_json()
+            name = post_data['name']
+            email = post_data['email']
+            country = post_data['country']
+            password = post_data['password']
 
             with sqlite3.connect('database.db') as con:
                 cur = con.cursor()

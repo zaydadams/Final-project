@@ -167,13 +167,18 @@ body{
     font-size: 30px;
     margin-left: 20px;
 }
-.row {
-    display: flex;
-  }
-  
-  /* Create two equal columns that sits next to each other */
-  .column {
-    flex: 50%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-  }
+.grid-container {
+  display: grid;
+  grid-template: 400px / auto auto auto;
+  box-sizing: border-box;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}

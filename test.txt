@@ -1,0 +1,8 @@
+@app.route('/route/', methods=['POST','PUT','DELETE'])
+
+        def add_item:
+        if request.mrthod == 'POST':
+        msg = None
+        try:
+        post_data = request.get_json()
+        firstname = post_data['firstname']
