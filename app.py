@@ -83,3 +83,11 @@ def delete_clients(client_id):
         return jsonify('delete-success.html', msg=msg)
 
 
+def init_sqlite_images():
+
+    conn = sqlite3.connect('database.db')
+    print("Opened database successfully")
+
+    conn.execute('CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT')
+    print("Table created successfully")
+    conn.close()
