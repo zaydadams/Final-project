@@ -1,6 +1,7 @@
 import sqlite3
 from flask import Flask, request
 from flask import jsonify
+from flask_cors import CORS
 
 
 def init_sqlite_db():
@@ -8,8 +9,14 @@ def init_sqlite_db():
     conn = sqlite3.connect('database.db')
     print("Opened database successfully")
 
-    conn.execute('CREATE TABLE IF NOT EXISTS clients (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, country TEXT, password TEXT)')
+    conn.execute('CREATE TABLE IF NOT EXISTS clients (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, surname TEXT, email TEXT, password TEXT, confirmP TEXT)')
     print("Table created successfully")
+
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM clients")
+
+    print(cursor.fetchall())
+
     conn.close()
 
 
@@ -17,36 +24,37 @@ init_sqlite_db()
 
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route('/')
-@app.route('/registration-form/')
-def enter_new_client():
-    return jsonify('landing.html')
+#@app.route('/register/')
+#def enter_new_client():
+    #return jsonify('landing.html')
 
 
-@app.route('/add-new-record/', methods=['POST'])
+@app.route('/register/', methods=['POST'])
 def add_new_record():
     if request.method == "POST":
         msg = None
         try:
             post_data = request.get_json()
             name = post_data['name']
+            surname = post_data['surname']
             email = post_data['email']
-            country = post_data['country']
             password = post_data['password']
+            confirmP = post_data['confirmP']
 
             with sqlite3.connect('database.db') as con:
                 cur = con.cursor()
-                cur.execute("INSERT INTO clients (name, email, country, password) VALUES (?, ?, ?, ?)", (name, email, country, password))
+                cur.execute("INSERT INTO clients (name, surname, email, password, confirmP) VALUES (?, ?, ?, ?, ?)", (name, surname, email, password, confirmP))
                 con.commit()
                 msg = name + " was successfully added to the database."
         except Exception as e:
-            con.rollback()
             msg = "Error occurred in insert operation: " + str(e)
 
         finally:
-            con.close()
-            return jsonify('results.html', msg=msg)
+            return {'msg': msg}
 
 
 @app.route('/show-records/', methods=["GET"])
@@ -62,7 +70,7 @@ def show_records():
         print("There was an error fetching results from the database: " + str(e))
     finally:
         con.close()
-        return jsonify('records.html', records=records)
+        return jsonify(records)
 
 
 @app.route('/delete-clients/<int:clients_id>/', methods=["GET"])
@@ -80,14 +88,4 @@ def delete_clients(client_id):
         msg = "Error occurred when deleting a client in the database: " + str(e)
     finally:
         con.close()
-        return jsonify('delete-success.html', msg=msg)
-
-
-def init_sqlite_images():
-
-    conn = sqlite3.connect('database.db')
-    print("Opened database successfully")
-
-    conn.execute('CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT')
-    print("Table created successfully")
-    conn.close()
+        return jsonify('landing.html', msg=msg)

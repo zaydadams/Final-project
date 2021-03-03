@@ -1,8 +1,103 @@
 @app.route('/route/', methods=['POST','PUT','DELETE'])
 
         def add_item:
-        if request.mrthod == 'POST':
+        if request.method == 'POST':
         msg = None
         try:
         post_data = request.get_json()
         firstname = post_data['firstname']
+
+
+
+import sqlite3
+from flask import Flask, request
+from flask import jsonify
+
+
+def init_sqlite_db():
+
+    conn = sqlite3.connect('database.db')
+    print("Opened database successfully")
+
+    conn.execute('CREATE TABLE IF NOT EXISTS clients (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, country TEXT, password TEXT)')
+    print("Table created successfully")
+    conn.close()
+
+
+init_sqlite_db()
+
+
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/register/')
+def enter_new_client():
+    return jsonify('landing.html')
+
+
+@app.route('/register/', methods=['POST'])
+def add_new_record():
+    if request.method == "POST":
+        msg = None
+        try:
+            post_data = request.get_json()
+            name = post_data['name']
+            surname = post_data['surname']
+            email = post_data['email]
+            password = post_data['password']
+            confirmp = post_data['confirmp]
+
+            with sqlite3.connect('database.db') as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO clients (name, surname, email, password,confirmp) VALUES (?, ?, ?, ?)", (name, surname, email, password,confirmp))
+                con.commit()
+                msg = name + " was successfully added to the database."
+        except Exception as e:
+            msg = "Error occurred in insert operation: " + str(e)
+
+        finally:
+            return {'msg'msg}
+
+
+@app.route('/show-records/', methods=["GET"])
+def show_records():
+    records = []
+    try:
+        with sqlite3.connect('database.db') as con:
+            cur = con.cursor()
+            cur.execute("SELECT * FROM clients")
+            records = cur.fetchall()
+    except Exception as e:
+        con.rollback()
+        print("There was an error fetching results from the database: " + str(e))
+    finally:
+        con.close()
+        return jsonify('records.html', records=records)
+
+
+@app.route('/delete-clients/<int:clients_id>/', methods=["GET"])
+def delete_clients(client_id):
+
+    msg = None
+    try:
+        with sqlite3.connect('database.db') as con:
+            cur = con.cursor()
+            cur.execute("DELETE FROM clients WHERE id=" + str(client_id))
+            con.commit()
+            msg = "A record was deleted successfully from the database."
+    except Exception as e:
+        con.rollback()
+        msg = "Error occurred when deleting a client in the database: " + str(e)
+    finally:
+        con.close()
+        return jsonify('landing.html', msg=msg)
+
+
+def init_sqlite_images():
+
+    conn = sqlite3.connect('database.db')
+    print("Opened database successfully")
+
+    conn.execute('CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT')
+    print("Table created successfully")
+    conn.close()

@@ -47,12 +47,12 @@
                     <input type="checkbox" class="check-box"><span>Remeber Password</span>
                     <button type="submit" class="submit-btn">Log in</button>
                 </form>
-                <form id="register" class="input-group-register">
-                    <input type="text" class="input-field" placeholder="First Name" required>
-                    <input type="text" class="input-field" placeholder="Last Name" required>
-                    <input type="email" class="input-field" placeholder="Email Id" required> 
-                    <input type="password" class="input-field" placeholder="Enter Password" required> 
-                    <input type="password" class="input-field" placeholder="Confirm Password" required> 
+                <form onsubmit="event.preventDefault(); insertUsers()" id="register" class="input-group-register">
+                    <input type="text" name="name"class="input-field" placeholder="First Name" required>
+                    <input type="text" name="surname"class="input-field" placeholder="Last Name" required>
+                    <input type="email" name="email"class="input-field" placeholder="Email Id" required> 
+                    <input type="password" name="password" class="input-field" placeholder="Enter Password" required> 
+                    <input type="password" name="confirmP" class="input-field" placeholder="Confirm Password" required> 
                     <input type="checkbox" class="check-box"><span class="check">I agree to the terms and conditions</span>
                     <button type="submit" class="submit-btn">Register</button>
                 </form>
