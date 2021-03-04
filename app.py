@@ -26,13 +26,14 @@ init_sqlite_db()
 app = Flask(__name__)
 CORS(app)
 
+def dict_factory(cursor, row):
+    d = {}
+    for idx,col in enumerate(cursor.description):
+        d[col[0]] =row[idx]
+
+    return d
 
 @app.route('/')
-#@app.route('/register/')
-#def enter_new_client():
-    #return jsonify('landing.html')
-
-
 @app.route('/register/', methods=['POST'])
 def add_new_record():
     if request.method == "POST":
@@ -57,20 +58,40 @@ def add_new_record():
             return {'msg': msg}
 
 
-@app.route('/show-records/', methods=["GET"])
+@app.route('/login/', methods=["GET"])
 def show_records():
-    records = []
     try:
         with sqlite3.connect('database.db') as con:
+            con.row_factory = dict_factory
             cur = con.cursor()
             cur.execute("SELECT * FROM clients")
             records = cur.fetchall()
     except Exception as e:
         con.rollback()
         print("There was an error fetching results from the database: " + str(e))
-    finally:
-        con.close()
-        return jsonify(records)
+    return jsonify(records)
+
+
+@app.route('/loggedIn/', methods=['GET'])
+def loggedIn():
+     if request.method == "GET":
+        msg = None
+        try:
+            post_data = request.get_json()
+            email = post_data['email']
+            password = post_data['password']
+            print(email, password)
+            with sqlite3.connect('database.db') as con:
+                cur = con.cursor()
+                cur.execute("SELECT * FROM clients")
+                con.commit()
+                msg = " succesfully logged in."
+        except Exception as e:
+            msg = "Error occurred in insert operation: " + str(e)
+
+        finally:
+            return {'msg': msg}
+
 
 
 @app.route('/delete-clients/<int:clients_id>/', methods=["GET"])

@@ -37,18 +37,55 @@ window.onclick = function(event){
         modal.style.display ="none";
     }
 }
+let users;
+
+fetch("http://127.0.0.1:5000/login/")
+.then((response) =>response.json())
+.then((data) =>{
+  console.log(data);
+  users = data.body;
+});
+
+//login function//
+function logIN(){
+  users = [];
+  let form = document.getElementById('login')
+  let inputs = form.getElementsByTagName("input");
+    
+  let email = inputs[0].value;
+  let password = inputs[1].value;
+
+  let log = users.filter(user => {
+      return user.email == email && user.password == password ?true : false;
+    })
+
+  console.log(log);
+
+  if (log.length > 0) {
+      alert("You have successfully logged in");
+      window.location.href = "./landing.html";
+  }else{
+      alert("Please enter a valid email and password");
+    }
+}
+  
+   
+
+    
+
 function insertUsers(){
  
   const inputs = document.getElementsByTagName('input')
 
+
   fetch("http://127.0.0.1:5000/register/",{
       method: 'POST',
       body: JSON.stringify({
-          name: inputs[3].value,
-          surname: inputs[4].value,
-          email: inputs[5].value,
-          password: inputs[6].value,
-          confirmP: inputs[7].value,
+          name: inputs[0].value,
+          surname: inputs[1].value,
+          email: inputs[2].value,
+          password: inputs[3].value,
+          confirmP: inputs[4].value,
       }),
       headers: {
           "Content-Type": "application/json; charset=UTF-8",

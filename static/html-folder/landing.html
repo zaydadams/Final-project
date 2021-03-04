@@ -41,9 +41,9 @@
                     <button type="button" onclick="login()" class="toggle-btn">Log in</button>
                     <button type="button" onclick="register()" class="toggle-btn">Register</button>
                 </div>
-                <form id="login" class="input-group-login">
-                    <input type="text" class="input-field" placeholder="Email Id" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                <form onsubmit="event.preventDefault(); logIN()"id="login" class="input-group-login">
+                    <input type="email" name="email" class="input-field" placeholder="Email Id" required>
+                    <input type="password" name="name" class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="check-box"><span>Remeber Password</span>
                     <button type="submit" class="submit-btn">Log in</button>
                 </form>
