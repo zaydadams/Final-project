@@ -43,21 +43,23 @@ fetch("http://127.0.0.1:5000/login/")
 .then((response) =>response.json())
 .then((data) =>{
   console.log(data);
-  users = data.body;
+  users = data;
 });
 
 //login function//
 function logIN(){
-  users = [];
+  // users = [];
   let form = document.getElementById('login')
   let inputs = form.getElementsByTagName("input");
     
-  let email = inputs[0].value;
-  let password = inputs[1].value;
+  let eml = inputs[0].value;
+  let pssword = inputs[1].value;
+  console.log(eml)
+  console.log(pssword)
 
-  let log = users.filter(user => {
-      return user.email == email && user.password == password ?true : false;
-    })
+  let log = users.filter((user) => {
+      return user.email == eml && user.password == pssword ?true : false;
+    });
 
   console.log(log);
 
@@ -74,8 +76,8 @@ function logIN(){
     
 
 function insertUsers(){
- 
-  const inputs = document.getElementsByTagName('input')
+  const form = document.getElementById("register")
+  const inputs = form.getElementsByTagName('input')
 
 
   fetch("http://127.0.0.1:5000/register/",{
