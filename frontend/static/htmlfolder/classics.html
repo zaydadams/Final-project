@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css-folder/classics.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a class="active" href="#home"><i class="fa fa-fw fa-home"></i>Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Content
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Latest cars</a>
+          <a href="#">Old school</a>
+          <a href="#">Street racing</a>
+        </div>
+      </div>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="landing.html">Login/signup</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()"
+        >&#9776;</a
+      >
+    </div>
+    <div>
+      <form
+        onsubmit="event.preventDefault(); addPost()"
+        id="addP"
+        class="input-group-register"
+      >
+        <input
+          type="text"
+          name="image"
+          class="input-field"
+          placeholder="add image link"
+          required
+        />
+        <input
+          type="text"
+          name="title"
+          class="input-field"
+          placeholder="title"
+          required
+        />
+        <input
+          type="text"
+          name="year"
+          class="input-field"
+          placeholder="year"
+          required
+        />
+        <input
+          type="text"
+          name="description"
+          class="input-field"
+          placeholder="description"
+          required
+        />
+        <button type="submit" class="submit-btn">Post</button>
+      </form>
+    </div>
+
+    <script src="/static/js-folder/main.js"></script>
+    <script src="/static/js-folder/createblog.js"></script>
+  </body>
+</html>
