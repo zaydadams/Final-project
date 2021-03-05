@@ -17,6 +17,17 @@ def init_sqlite_db():
 
     print(cursor.fetchall())
 
+    conn = sqlite3.connect('database.db')
+    print("Opened database successfully")
+
+    conn.execute('CREATE TABLE IF NOT EXISTS blogs (id INTEGER PRIMARY KEY AUTOINCREMENT, image TEXT, title TEXT, year TEXT, description TEXT)')
+    print("Table created successfully")
+
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM blogs")
+
+    print(cursor.fetchall())
+
     conn.close()
 
 
@@ -110,3 +121,43 @@ def delete_clients(client_id):
     finally:
         con.close()
         return jsonify('landing.html', msg=msg)
+
+
+
+
+@app.route('/show-posts/', methods=["GET"])
+def show_blog_posts():
+    try:
+        with sqlite3.connect('database.db') as con:
+            con.row_factory = dict_factory
+            cur = con.cursor()
+            cur.execute("SELECT * FROM blogs")
+            records = cur.fetchall()
+    except Exception as e:
+        con.rollback()
+        print("There was an error fetching results from the database: " + str(e))
+    return jsonify(records)
+#addpost
+
+@app.route('/')
+@app.route('/addP/', methods=['POST'])
+def add_newpost():
+    if request.method == "POST":
+        msg = None
+        try:
+            post_data = request.get_json()
+            image = post_data['image']
+            title = post_data['title']
+            year = post_data['year']
+            description = post_data['description']
+
+            with sqlite3.connect('database.db') as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO blogs (image, title, year, description) VALUES (?, ?, ?, ?)", (image, title, year, description))
+                con.commit()
+                msg = " was successfully added to the database."
+        except Exception as e:
+            msg = "Error occurred in insert operation: " + str(e)
+
+        finally:
+            return jsonify(msg=msg)
