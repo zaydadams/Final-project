@@ -23,3 +23,7 @@ function addPost() {
       document.getElementById("addP").reset();
     });
 }
+
+function blogfetch() {
+  fetch("http://127.0.0.1:5000/");
+}
