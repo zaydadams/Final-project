@@ -62,7 +62,7 @@ function logIN() {
 
   if (log.length > 0) {
     alert("You have successfully logged in");
-    window.location.href = "./landing.html";
+    window.location.href = "./index.html";
   } else {
     alert("Please enter a valid email and password");
   }
