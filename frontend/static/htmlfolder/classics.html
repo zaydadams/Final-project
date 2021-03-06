@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css-folder/classics.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/frontend/static/cssfolder/classics.css" />
     <title>Document</title>
   </head>
   <body>
@@ -37,6 +41,43 @@
       <form
         onsubmit="event.preventDefault(); addPost()"
         id="addP"
+        class="input-group-register"
+      >
+        <input
+          type="text"
+          name="image"
+          class="input-field"
+          placeholder="add image link"
+          required
+        />
+        <input
+          type="text"
+          name="title"
+          class="input-field"
+          placeholder="title"
+          required
+        />
+        <input
+          type="text"
+          name="year"
+          class="input-field"
+          placeholder="year"
+          required
+        />
+        <input
+          type="text"
+          name="description"
+          class="input-field"
+          placeholder="description"
+          required
+        />
+        <button type="submit" class="submit-btn">Post</button>
+      </form>
+    </div>
+    <div>
+      <form
+        onsubmit="event.preventDefault(); deleteAcount()"
+        id="dltuser"
         class="input-group-register"
       >
         <input
