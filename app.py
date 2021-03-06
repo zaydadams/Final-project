@@ -70,7 +70,7 @@ def add_new_record():
 
 
 @app.route('/login/', methods=["GET"])
-def show_records():
+def show_userlogin():
     try:
         with sqlite3.connect('database.db') as con:
             con.row_factory = dict_factory
@@ -126,7 +126,7 @@ def delete_clients(client_id):
 
 
 @app.route('/show-posts/', methods=["GET"])
-def show_records():
+def show_posts():
     try:
         with sqlite3.connect('database.db') as con:
             con.row_factory = dict_factory
