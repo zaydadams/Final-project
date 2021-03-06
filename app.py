@@ -80,7 +80,7 @@ def show_userlogin():
     except Exception as e:
         con.rollback()
         print("There was an error fetching results from the database: " + str(e))
-    return  jsonify(records)
+    return jsonify(records)
 
 
 @app.route('/loggedIn/', methods=['GET'])
@@ -102,7 +102,6 @@ def loggedIn():
 
         finally:
             return {'msg': msg}
-
 
 
 @app.route('/delete-clients/<int:clients_id>/', methods=["GET"])

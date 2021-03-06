@@ -92,3 +92,7 @@ function insertUsers() {
       document.getElementById("register").reset();
     });
 }
+function sign_out() {
+  alert("You have successfully signed out");
+  window.location.href = "./landing.html";
+}

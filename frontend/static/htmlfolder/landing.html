@@ -13,22 +13,9 @@
   <body>
     <section id="firstsection">
       <div class="topnav" id="myTopnav">
-        <a href="index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-        <div class="dropdown">
-          <button class="dropbtn">
-            Content
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="latest.html">Latest cars</a>
-            <a href="classics.html">Classics</a>
-            <a href="street.html">Street racing</a>
-          </div>
-        </div>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
-        <a class="active" href="landing.html">Login/signup</a>
-        <button onclick="signoutbtn()">signout</button>
+
         <div class="search-container">
           <form action="/action_page.php">
             <input type="text" placeholder="Search.." name="search" />
@@ -75,7 +62,9 @@
             <input type="checkbox" class="check-box" /><span
               >Remember Password</span
             >
-            <button type="submit" class="submit-btn">Log in</button>
+            <button id="log_in_btn" type="submit" class="submit-btn">
+              Log in
+            </button>
           </form>
           <form
             onsubmit="event.preventDefault(); insertUsers()"
