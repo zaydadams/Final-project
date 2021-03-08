@@ -94,5 +94,5 @@ function insertUsers() {
 }
 function sign_out() {
   alert("You have successfully signed out");
-  window.location.href = "./landing.html";
+  window.location.href = "./index.html";
 }
