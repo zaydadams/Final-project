@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+body {
+  margin: 0;
+  padding: 0px;
+  background: #fff;
+}
+/* Add a black background color to the top navigation */
 .topnav {
   background-color: #333;
   overflow: hidden;
@@ -16,7 +26,7 @@
 
 /* Add an active class to highlight the current page */
 .active {
-  background-color: #d82912;
+  background-color: #f88436;
   color: white;
 }
 
@@ -163,4 +173,45 @@
     width: 100%;
     text-align: left;
   }
+}
+
+.btnclick {
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+}
+.firstsection {
+  display: flex;
+  justify-content: center;
+}
+
+.secondsection {
+  display: flex;
+  justify-content: center;
+}
+
+.forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 480px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.input-group-register {
+  justify-content: center;
+  top: 120px;
+  width: 280px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 30px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid rgb(177, 3, 3);
+  outline: none;
 }

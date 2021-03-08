@@ -280,3 +280,9 @@ body {
 .rows .columns h3 {
   color: #fff;
 }
+
+.btnclick {
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+}
